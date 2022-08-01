@@ -28,7 +28,8 @@ public class GameScript : MonoBehaviour
         if (lighting.enabled)
         {
             lighting.enabled = false;
-            //Update the buttonGUI to say "Turn On" 
+            //Update the buttonGUI to say "Turn On"
+            buttonGUI.text = "Turn on";
         }
         else
         {
@@ -37,7 +38,10 @@ public class GameScript : MonoBehaviour
             lighting.color = new Color(Random.Range(0,0.99f), Random.Range(0, 0.99f), Random.Range(0, 0.99f), 1);
 
             //Update the counterGUI text to display current count
+           counterGUI.text = "current number"+counter;
+
             //Update the buttonGUI to say "Turn Off"
+            buttonGUI.text = "Turn off";
         }
         buttonSFX.Play();
     }
@@ -45,6 +49,8 @@ public class GameScript : MonoBehaviour
     public void goToNextLevel()
     {
         //Use Scene Manager and the nextLevelName variable to Load into MainMenu
+        SceneManager.LoadScene(nextLevelName);
         //Use the buttonSFX to play when this function executes
+        buttonSFX.Play();
     }
 }
